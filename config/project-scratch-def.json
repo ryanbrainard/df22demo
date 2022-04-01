@@ -2,14 +2,8 @@
     "orgName": "Ebikes",
     "edition": "Developer",
     "hasSampleData": false,
-    "features": ["Communities", "Walkthroughs", "EnableSetPasswordInApi"],
+    "features": ["Walkthroughs", "EnableSetPasswordInApi"],
     "settings": {
-        "communitiesSettings": {
-            "enableNetworksEnabled": true
-        },
-        "experienceBundleSettings": {
-            "enableExperienceBundleMetadata": true
-        },
         "lightningExperienceSettings": {
             "enableS1DesktopEnabled": true
         },

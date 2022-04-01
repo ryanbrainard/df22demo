@@ -3,7 +3,7 @@ SCRIPT_PATH=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
 cd $SCRIPT_PATH/..
 
 # Set parameters
-ORG_ALIAS="ebikes"
+ORG_ALIAS="demo"
 
 echo ""
 echo "Installing E-Bikes scratch org ($ORG_ALIAS)"
@@ -28,18 +28,6 @@ echo "" && \
 
 echo "Importing sample data..." && \
 sfdx force:data:tree:import -p data/sample-data-plan.json && \
-echo "" && \
-
-echo "Sleeping 30s for XP Cloud deployment..." && \
-sleep 30 && \
-echo "" && \
-
-echo "Publishing XP Cloud site..." && \
-sfdx force:community:publish -n E-Bikes && \
-echo "" && \
-
-echo "Deploying guest profile for XP Cloud site..." && \
-sfdx force:mdapi:deploy -d guest-profile-metadata -w 10 && \
 echo "" && \
 
 echo "Opening org..." && \

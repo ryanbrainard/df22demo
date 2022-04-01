@@ -12,6 +12,8 @@ public with sharing class ProductController {
         public String[] materials { get; set; }
         @AuraEnabled
         public String[] levels { get; set; }
+        @AuraEnabled
+        public String[] statuses { get; set; }
     }
 
     @AuraEnabled(Cacheable=true)

@@ -1,4 +1,4 @@
-# E-Bikes Lightning Web Components Sample Application
+# Demo App based on E-Bikes Lightning Web Components Sample Application
 
 [![CI Workflow](https://github.com/trailheadapps/ebikes-lwc/workflows/CI/badge.svg)](https://github.com/trailheadapps/ebikes-lwc/actions?query=workflow%3ACI) [![codecov](https://codecov.io/gh/trailheadapps/ebikes-lwc/branch/main/graph/badge.svg)](https://codecov.io/gh/trailheadapps/ebikes-lwc)
 
@@ -16,17 +16,19 @@ E-Bikes is a sample application that demonstrates how to build applications with
 
 > This sample application is designed to run on Salesforce Platform. If you want to experience Lightning Web Components on any platform, please visit https://lwc.dev, and try out our Lightning Web Components sample application [LWC Recipes OSS](https://github.com/trailheadapps/lwc-recipes-oss).
 
+> `Note`: This variant of Ebikes is designed only for Salesforce Platform and does not include the Experience Cloud.
+
 ## Table of contents
 
--   [Installing E-Bikes using a scratch org](#installing-e-bikes-using-a-scratch-org)
+-   [Installing this demo app using a scratch org](#installing-e-bikes-using-a-scratch-org)
 
--   [Installing E-Bikes using a Developer Edition Org or a Trailhead Playground](#installing-e-bikes-using-a-developer-edition-org-or-a-trailhead-playground)
+-   [Installing this demo app using a Developer Edition Org or a Trailhead Playground](#installing-e-bikes-using-a-developer-edition-org-or-a-trailhead-playground)
 
 -   [Optional installation instructions](#optional-installation-instructions)
 
 -   [Code tours](#code-tours)
 
-## Installing E-Bikes using a Scratch Org
+## Installing Demo App using a Scratch Org
 
 1. Set up your environment. Follow the steps in the [Quick Start: Lightning Web Components](https://trailhead.salesforce.com/content/learn/projects/quick-start-lightning-web-components/) Trailhead project. The steps include:
 
@@ -78,18 +80,6 @@ E-Bikes is a sample application that demonstrates how to build applications with
     sfdx force:data:tree:import -p ./data/sample-data-plan.json
     ```
 
-1. Publish the Experience Cloud site:
-
-    ```
-    sfdx force:community:publish -n E-Bikes
-    ```
-
-1. Deploy metadata for the Experience Cloud guest user profile:
-
-    ```
-    sfdx force:mdapi:deploy -d guest-profile-metadata -w 10
-    ```
-
 1. Open the scratch org:
 
     ```
@@ -100,7 +90,7 @@ E-Bikes is a sample application that demonstrates how to build applications with
 
 1. In App Launcher, select the **E-Bikes** app.
 
-## Installing E-Bikes using a Developer Edition Org or a Trailhead Playground
+## Installing the Demo App using a Developer Edition Org or a Trailhead Playground
 
 Follow this set of instructions if you want to deploy the app to a more permanent environment than a Scratch org.
 This includes non source-tracked orgs such as a [free Developer Edition Org](https://developer.salesforce.com/signup) or a [Trailhead Playground](https://trailhead.salesforce.com/).
@@ -120,73 +110,33 @@ Make sure to start from a brand-new environment to avoid conflicts with previous
     sfdx auth:web:login -s -a mydevorg
     ```
 
-1. Enable Experiences with the following steps:
+1. Run this command in a terminal to deploy the app.
 
-    1. In your org, in **Setup**, select **Settings**, under **Digital Experiences**.
-    1. Click the **Enable Digital Experiences** checkbox
-    1. Enter a domain name for your experience site. Remember this value as you’ll use it later in this step.
-    1. Make sure that your domain name is available by clicking **Check Availability**.
-    1. Click **Save** then **Ok**.
-    1. Navigate back to **Settings** in Setup.
-    1. Under **Experience Management Settings**, enable **Enable ExperienceBundle Metadata API**.
+    ```
+    sfdx force:source:deploy -p force-app
+    ```
 
-1. Configure the Experience Cloud site metadata file with the following steps:
+1. Assign the **ebikes** permission set to the default user.
 
-    1. Edit the `force-app/main/default/sites/E_Bikes.site-meta.xml` file.
-    1. Replace the value between the `<siteAdmin>` tags with your Playground username.
-    1. Replace the value between the `<siteGuestRecordDefaultOwner>` tags with your Playground username.
-    1. Replace the value between the `<subdomain>` tags with your domain.
-    1. Save the file.
+    ```
+    sfdx force:user:permset:assign -n ebikes
+    ```
 
-1. Remove the `Product` custom field from the `Case` object with the following steps:
+1. Import some sample data.
 
-    1. In Setup, click the **Object Manager** tab.
-    1. Click on the **Case** object.
-    1. Click **Fields & Relationships**.
-    1. Locate the **Product** picklist field and click **Delete** from the row menu.
-    1. Confirm deletion by clicking **Delete**.
+    ```
+    sfdx force:data:tree:import -p ./data/sample-data-plan.json
+    ```
 
-1. Deploy the App with these steps:
+1. If your org isn't already open, open it now:
 
-    1. Run this command in a terminal to deploy the app.
+    ```
+    sfdx force:org:open
+    ```
 
-        ```
-        sfdx force:source:deploy -p force-app
-        ```
+1. In **Setup**, under **Themes and Branding**, activate the **Lightning Lite** theme.
 
-    1. Assign the **ebikes** permission set to the default user.
-
-        ```
-        sfdx force:user:permset:assign -n ebikes
-        ```
-
-    1. Import some sample data.
-
-        ```
-        sfdx force:data:tree:import -p ./data/sample-data-plan.json
-        ```
-
-    1. Publish the Experience Cloud site.
-
-        ```
-        sfdx force:community:publish -n E-Bikes
-        ```
-
-    1. Deploy metadata for the Experience Cloud guest user profile:
-
-        ```
-        sfdx force:mdapi:deploy -d guest-profile-metadata -w 10
-        ```
-
-    1. If your org isn't already open, open it now:
-
-        ```
-        sfdx force:org:open
-        ```
-
-    1. In **Setup**, under **Themes and Branding**, activate the **Lightning Lite** theme.
-
-    1. In App Launcher, select the **E-Bikes** app.
+1. In App Launcher, select the **E-Bikes** app.
 
 ## Optional Installation Instructions
 
