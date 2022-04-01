@@ -46,7 +46,7 @@ E-Bikes is a sample application that demonstrates how to build applications with
 1. Clone the repository:
 
     ```
-    git clone https://github.com/trailheadapps/ebikes-lwc
+    git clone https://github.com/satyasekharcvb/tdx22demo.git
     cd ebikes-lwc
     ```
 
@@ -100,7 +100,7 @@ Make sure to start from a brand-new environment to avoid conflicts with previous
 1. Clone this repository:
 
     ```
-    git clone https://github.com/trailheadapps/ebikes-lwc
+    git clone https://github.com/satyasekharcvb/tdx22demo.git
     cd ebikes-lwc
     ```
 
