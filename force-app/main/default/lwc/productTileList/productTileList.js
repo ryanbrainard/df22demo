@@ -24,6 +24,8 @@ export default class ProductTileList extends LightningElement {
      */
     @api tilesAreDraggable = false;
 
+    @api hideSold = false;
+
     /** Current page in the product list. */
     pageNumber = 1;
 
@@ -35,6 +37,11 @@ export default class ProductTileList extends LightningElement {
 
     /** JSON.stringified version of filters to pass to apex */
     filters = {};
+    /*  this.hideSold === true
+            ? {}
+            : {
+                  statuses: ['Available', 'Selling Fast']
+              };*/
 
     /** Load context for Lightning Messaging Service */
     @wire(MessageContext) messageContext;
@@ -55,6 +62,12 @@ export default class ProductTileList extends LightningElement {
             PRODUCTS_FILTERED_MESSAGE,
             (message) => this.handleFilterChange(message)
         );
+        this.filters =
+            this.hideSold === false
+                ? {}
+                : {
+                      statuses: ['Available', 'Selling Fast']
+                  };
     }
 
     handleProductSelected(event) {
@@ -66,7 +79,9 @@ export default class ProductTileList extends LightningElement {
 
     handleSearchKeyChange(event) {
         this.filters = {
-            searchKey: event.target.value.toLowerCase()
+            searchKey: event.target.value.toLowerCase(),
+            statuses:
+                this.hideSold === false ? [] : ['Available', 'Selling Fast']
         };
         this.pageNumber = 1;
     }

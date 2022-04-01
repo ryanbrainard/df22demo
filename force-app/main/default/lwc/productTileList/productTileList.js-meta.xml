@@ -22,6 +22,11 @@
                 type="Boolean"
                 label="Product tiles are draggable"
             />
+            <property
+                name="hideSold"
+                type="Boolean"
+                label="Don't show sold vehicles"
+            />
             <objects>
                 <object>Order__c</object>
             </objects>

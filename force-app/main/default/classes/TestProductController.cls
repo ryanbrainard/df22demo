@@ -10,7 +10,8 @@ public class TestProductController {
                 MSRP__c = 1000,
                 Category__c = 'Mountain',
                 Level__c = 'Beginner',
-                Material__c = 'Carbon'
+                Material__c = 'Carbon',
+                Status__c = 'Available'
             )
         );
 
@@ -20,7 +21,8 @@ public class TestProductController {
                 MSRP__c = 1200,
                 Category__c = 'Mountain',
                 Level__c = 'Beginner',
-                Material__c = 'Carbon'
+                Material__c = 'Carbon',
+                Status__c = 'Available'
             )
         );
 
@@ -35,6 +37,7 @@ public class TestProductController {
         filters.categories = new List<String>{ 'Mountain' };
         filters.levels = new List<String>{ 'Beginner' };
         filters.materials = new List<String>{ 'Carbon' };
+        filters.statuses = new List<String>{ 'Available' };
         PagedResult result = ProductController.getProducts(filters, 1);
         System.assertEquals(result.records.size(), 2);
     }
@@ -47,6 +50,7 @@ public class TestProductController {
         filters.categories = new List<String>{ 'Mountain' };
         filters.levels = new List<String>{ 'Beginner' };
         filters.materials = new List<String>{ 'Carbon' };
+        filters.statuses = new List<String>{ 'Available' };
         PagedResult result = ProductController.getProducts(filters, 1);
         Product__c productToCompare = (Product__c) result.records[0];
         Product__c[] products = ProductController.getSimilarProducts(

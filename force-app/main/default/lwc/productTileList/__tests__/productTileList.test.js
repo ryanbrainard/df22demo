@@ -215,7 +215,7 @@ describe('c-product-tile-list', () => {
     describe('with search bar visible', () => {
         it('updates getProducts @wire with searchKey as filter when search bar changes', () => {
             const input = 'foo';
-            const expected = { searchKey: input };
+            const expected = { searchKey: input, statuses: [] };
             const element = createElement('c-product-tile-list', {
                 is: ProductTileList
             });

@@ -16,11 +16,6 @@
                 <label>Available</label>
             </value>
             <value>
-                <fullName>Sold Out</fullName>
-                <default>false</default>
-                <label>Sold Out</label>
-            </value>
-            <value>
                 <fullName>Selling Fast</fullName>
                 <default>false</default>
                 <label>Selling Fast</label>
