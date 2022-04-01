@@ -71,7 +71,7 @@ public with sharing class ProductController {
         );
 
         result.records = Database.query(
-            'SELECT Id, Name, Status__c,MSRP__c, Description__c, Category__c, Level__c, Picture_URL__c, Material__c FROM Product__c ' +
+            'SELECT Id, Name, MSRP__c, Description__c, Category__c, Level__c, Picture_URL__c, Material__c FROM Product__c ' +
             whereClause +
             ' WITH SECURITY_ENFORCED' +
             ' ORDER BY Name LIMIT :pageSize OFFSET :offset'
@@ -85,7 +85,6 @@ public with sharing class ProductController {
             SELECT
                 Id,
                 Name,
-                Status__c,
                 MSRP__c,
                 Description__c,
                 Category__c,
