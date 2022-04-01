@@ -19,12 +19,23 @@ export default class ProductTile extends LightningElement {
         this.pictureUrl = value.Picture_URL__c;
         this.name = value.Name;
         this.msrp = value.MSRP__c;
+        this.status = value.Status__c;
+        this.badgeClass =
+            value.Status__c === 'Available'
+                ? 'slds-theme_success'
+                : value.Status__c === 'Sold'
+                ? 'slds-theme_error'
+                : 'slds-theme_warning';
     }
 
     /** Product__c field values to display. */
     pictureUrl;
     name;
     msrp;
+    status;
+
+    /**Status Label Styling */
+    badgeClass;
 
     handleClick() {
         const selectedEvent = new CustomEvent('selected', {

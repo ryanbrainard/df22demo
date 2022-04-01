@@ -2,6 +2,12 @@
     <div draggable={draggable} ondragstart={handleDragStart}>
         <a onclick={handleClick}>
             <div class="content">
+                <template if:true={status}>
+                    <lightning-badge
+                        label={status}
+                        class={badgeClass}
+                    ></lightning-badge
+                ></template>
                 <img
                     src={pictureUrl}
                     class="product slds-align_absolute-center"
