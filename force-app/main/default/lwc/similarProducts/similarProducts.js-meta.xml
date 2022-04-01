@@ -5,23 +5,12 @@
     <masterLabel>Similar Products</masterLabel>
     <targets>
         <target>lightning__RecordPage</target>
-        <target>lightningCommunity__Page</target>
-        <target>lightningCommunity__Default</target>
     </targets>
     <targetConfigs>
         <targetConfig targets="lightning__RecordPage">
             <objects>
                 <object>Product__c</object>
             </objects>
-        </targetConfig>
-        <targetConfig targets="lightningCommunity__Default">
-            <property
-                name="recordId"
-                type="String"
-                label="Record Id To find similarities"
-                description="Default uses the current page's record id. Modify if you want a specific record to use."
-                default="{!recordId}"
-            />
         </targetConfig>
     </targetConfigs>
 </LightningComponentBundle>

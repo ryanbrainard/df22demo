@@ -3,7 +3,7 @@ SCRIPT_PATH=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
 cd $SCRIPT_PATH/..
 
 # Set parameters
-ORG_ALIAS="demo"
+ORG_ALIAS="tdx22demo"
 
 echo ""
 echo "Installing E-Bikes scratch org ($ORG_ALIAS)"

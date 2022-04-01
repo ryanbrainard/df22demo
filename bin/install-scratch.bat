@@ -1,7 +1,7 @@
 @echo OFF
 
 rem Set parameters
-set ORG_ALIAS=ebikes
+set ORG_ALIAS=tdx22demo
 
 @echo:
 echo Installing E-Bikes scratch org (%ORG_ALIAS%)
@@ -35,16 +35,6 @@ call :checkForError
 
 echo Sleeping 30s for XP Cloud deployment...
 timeout /T 30 /NOBREAK
-@echo:
-
-echo Publishing XP Cloud site...
-cmd.exe /c sfdx force:community:publish -n E-Bikes
-call :checkForError
-@echo:
-
-echo Deploying guest profile for XP Cloud site...
-cmd.exe /c sfdx force:mdapi:deploy -d guest-profile-metadata -w 10
-call :checkForError
 @echo:
 
 rem Report install success if no error
