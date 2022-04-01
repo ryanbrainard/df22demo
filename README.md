@@ -47,7 +47,7 @@ E-Bikes is a sample application that demonstrates how to build applications with
 
     ```
     git clone https://github.com/satyasekharcvb/tdx22demo.git
-    cd ebikes-lwc
+    cd tdx22demo
     ```
 
 1. Create a scratch org and provide it with an alias (**ebikes** in the command below):
@@ -101,7 +101,7 @@ Make sure to start from a brand-new environment to avoid conflicts with previous
 
     ```
     git clone https://github.com/satyasekharcvb/tdx22demo.git
-    cd ebikes-lwc
+    cd tdx22demo
     ```
 
 1. Authorize your Trailhead Playground or Developer org and provide it with an alias (**mydevorg** in the command below):
