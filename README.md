@@ -137,8 +137,39 @@ Make sure to start from a brand-new environment to avoid conflicts with previous
 1. In **Setup**, under **Themes and Branding**, activate the **Lightning Lite** theme.
 
 1. In App Launcher, select the **E-Bikes** app.
+## Installing the Demo App using Code Builder with a connected Org
 
-## Optional Installation Instructions
+Make sure to start from a brand-new environment to avoid conflicts with previous work you may have done. Open the terminal within Code Builder to execute these commands 
+
+1. Run this command in a terminal to deploy the app.
+
+    ```
+    sfdx force:source:deploy -p force-app
+    ```
+
+1. Assign the **ebikes** permission set to the default user.
+
+    ```
+    sfdx force:user:permset:assign -n ebikes
+    ```
+
+1. Import some sample data.
+
+    ```
+    sfdx force:data:tree:import -p ./data/sample-data-plan.json
+    ```
+
+1. If your org isn't already open, open it now:
+
+    ```
+    sfdx force:org:open
+    ```
+    <b>Note:</b> Code Builder is a headless environment, so you can run `sfdx force:org:open` and then following the instructions from the terminal window.  Or you can go to the salesforce login page.
+1. In **Setup**, under **Themes and Branding**, activate the **Lightning Lite** theme.
+
+1. In App Launcher, select the **E-Bikes** app.
+
+## Optional Installation Instructions (does not apply to Code Builder)
 
 This repository contains several files that are relevant if you want to integrate modern web development tooling to your Salesforce development processes, or to your continuous integration/continuous deployment processes.
 
